@@ -44,7 +44,7 @@ public class Main extends Application {
 				public void run() {
 					
 					while (true) {
-						//arayfromBool getWinOrEqTab  setWinOrEq
+					
 						if(arayfromBool(getWinOrEqTab())[0][0]==true && arayfromBool(getWinOrEqTab())[1][0]==false) {
 							winner1.setTextFill(Color.RED);
 							winner1.setText("RED WON!");
@@ -135,32 +135,26 @@ public class Main extends Application {
 			root1.setLayoutX(36);
 			root1.setLayoutY(170);
 			root.getChildren().add(root1);
-			// d�finir les cercles pour l'utiliser comme image
+
 			Circle circle1 = new Circle();
 			Circle circle2 = new Circle();
 			circle1.setFill(Color.RED);
 			circle2.setFill(Color.BLACK);
 
-			// mettre les cercles : cercle 1
+
 			circle1.setLayoutX(112);
 			circle1.setLayoutY(59);
 			circle1.setRadius(32);
 
-			// mettre les cercle comme image : cercle 2
 			circle2.setLayoutX(385);
 			circle2.setLayoutY(59);
 			circle2.setRadius(32);
-			// ajouter les images
+
 
 			root.getChildren().addAll(circle1, circle2);
 
-			// place vide : layout?
-
 			When w = Bindings.when((scene1.widthProperty().divide(scene1.heightProperty())).greaterThan(7.0 / 6.0));
 
-			// espace de jeu
-
-			// r:notre gridpane
 			Rectangle r = new Rectangle(0, 0, 402, 432);
 
 			r.setFill(Color.rgb(61, 73, 86));
@@ -185,7 +179,7 @@ public class Main extends Application {
 					root1.getChildren().add(c);
 				}
 			}
-			// cr�ation des cases
+
 			portepion = new Portepion[7][6];
 
 			for (int i = 0; i < L; i++) {
@@ -202,24 +196,19 @@ public class Main extends Application {
 				}
 			}
 
-			// textes:
-			// VS
 			
 			VS.setTextFill(Color.WHITE);
 			VS.setFont(Font.font("System", FontWeight.BOLD, scene.getHeight() / 20));
 			VS.setLayoutX(227);
 			VS.setLayoutY(60);
-			// player1
-
 			
+			// player1
 			player1.setTextFill(Color.WHITE);
 			player1.setFont(Font.font("System", FontWeight.BOLD, scene.getHeight() / 20));
 			player1.setLayoutX(47);
 			player1.setLayoutY(94);
-			// player1.layoutYProperty().bind(r.heightProperty());
-
-			// player2
 			
+			// player2
 			player2.setTextFill(Color.WHITE);
 			player2.setFont(Font.font("System", FontWeight.BOLD, scene.getHeight() / 20));
 
@@ -295,7 +284,6 @@ public class Main extends Application {
 			egalite.setLayoutY(60);
 
 			egalite.setVisible(false);
-			// winner2
 			
 			winner2.setTextFill(Color.BLACK);
 
@@ -304,21 +292,8 @@ public class Main extends Application {
 			winner2.setLayoutY(98);
 
 			winner2.setVisible(false);
-
-			/*
-			 * //changement subise lors de jeu height 800/20=40(si on l'agrandit l'ecriture
-			 * become grande scene.heightProperty().addListener(e->{
-			 * player1.setFont(Font.font("Comic Sans MS", scene.getHeight() / 20));
-			 * player2.setFont(Font.font("Comic Sans MS", scene.getHeight() / 20));
-			 * winner1.setFont(Font.font("Comic Sans MS", scene.getHeight() / 20));
-			 * winner2.setFont(Font.font("Comic Sans MS", scene.getHeight() / 20));
-			 * reset.setFont(Font.font("Comic Sans MS", scene.getHeight() / 20));
-			 * Exit.setFont(Font.font("Comic Sans MS", scene.getHeight() / 20)); });
-			 */
-
 			root.getChildren().addAll(player1, player2, winner1, winner2, reset, Exit, VS, egalite);
 
-			// cadres de s�lections:
 			Rectangle[] curseurselect = new Rectangle[C];
 			for (int i = 0; i < C; i++) {
 				curseurselect[i] = new Rectangle(0, 0, 10, 10);
@@ -335,7 +310,6 @@ public class Main extends Application {
 			}
 
 			// conteneur de curseur de selection
-			// curseur bech tpointi bih
 			Rectangle r2 = new Rectangle(0, 0, 10, 10);
 			r2.heightProperty().bind(r.heightProperty());
 			r2.widthProperty().bind(r.widthProperty());
@@ -357,7 +331,6 @@ public class Main extends Application {
 			nbTour =2;
 			// placement de pion apres un mouseclickes
 			// evenement lors de clic sur le rectangle curseurselection return colonne ou le
-			// rescngle curseur se situe
 			r2.setOnMouseClicked(e -> {
 				// e.get(x) prend ou le mouseclicked s'est situe
 
@@ -374,11 +347,11 @@ public class Main extends Application {
 					}
 					// portepion[colonne][newligne].resize(10, 10);
 
-					portepion[colonne][newligne].set(nbTour % 2 == 1 ? 1 : 2);// notation speciale ll if
+					portepion[colonne][newligne].set(nbTour % 2 == 1 ? 1 : 2);
 					initial=Integer.parseInt(nbrTour());
 					// conditions pour etre the winner
 
-					// nbr de couleur va retourner qui va jouer (red or black )!
+				
 					int couleur = (nbTour % 2 == 1 ? 1 : 2);
 					
 					int max = 0;
@@ -386,7 +359,6 @@ public class Main extends Application {
 					int y;
 					int somme;
 
-					// verifie en diagonale hautgauche-basdroite
 					x = colonne;
 					y = newligne;
 					somme = -1;
