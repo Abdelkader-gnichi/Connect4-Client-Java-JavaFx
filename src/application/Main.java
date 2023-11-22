@@ -703,7 +703,7 @@ public class Main extends Application {
 				boolTable[i][0] = Boolean.valueOf(arr[i][0]);
 		
 
-		return boolTable;
+		return boolTable
 	}
 	
 	public void resetWinOrEq() {
