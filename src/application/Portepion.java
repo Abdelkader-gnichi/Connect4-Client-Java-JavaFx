@@ -13,11 +13,11 @@ public class Portepion extends ImageView{
     
 	
 
-	//vide = 0 ; rouge = 1 ; noir = 2;;ce sont les status .... 
-	private int statut;
+	//vide = 0 ; rouge = 1 ; noir = 2; ;ce sont les status .... 
+	private int status;
 	
 	public Portepion(){
-		this.statut = 0;
+		this.status = 0;
 	}
 	
 	public void set(int j){
@@ -26,13 +26,13 @@ public class Portepion extends ImageView{
 			this.setImage(rouge);
 		if(j==2)
 			this.setImage(noir);
-		//j c'est nbtour dans le main
-		this.statut = j;
+
+		this.status = j;
 	}
 	
 	
-	public int getStatut(){
-		return statut;
+	public int getStatus(){
+		return status;
 	}
 	
 }   

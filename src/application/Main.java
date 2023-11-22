@@ -26,16 +26,12 @@ import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-	// déclaration des variables
 
 	private static int precedent;
 	private static int nbTour;
 	private static int initial = 1;
 	private Portepion[][] portepion;
 
-	/* boolean win1=false;
-     boolean win2=false;
-     boolean eq=false;*/
 	Button re =new Button();
 	@Override
 	public void start(Stage primaryStage) {
@@ -139,7 +135,7 @@ public class Main extends Application {
 			root1.setLayoutX(36);
 			root1.setLayoutY(170);
 			root.getChildren().add(root1);
-			// définir les cercles pour l'utiliser comme image
+			// dï¿½finir les cercles pour l'utiliser comme image
 			Circle circle1 = new Circle();
 			Circle circle2 = new Circle();
 			circle1.setFill(Color.RED);
@@ -167,12 +163,9 @@ public class Main extends Application {
 			// r:notre gridpane
 			Rectangle r = new Rectangle(0, 0, 402, 432);
 
-			// preparation de style de gridpane
-
 			r.setFill(Color.rgb(61, 73, 86));
 
-			// root:anchorpane et ses contenus ou la totalite de layout (ajout dr Grid dans
-			// l'ancherpane)
+			
 			root1.getChildren().addAll(r);
 			// ?
 
@@ -182,7 +175,7 @@ public class Main extends Application {
 
 			for (int i = 0; i < L; i++) {
 				for (int j = 0; j < C; j++) {
-					// ? a try!dwewer liwist el root1
+					
 					Circle c = new Circle(5 + 28 + 100 * j, 5 + 28 + 100 * i, 28);
 					c.setFill(Color.WHITE);
 					c.radiusProperty().bind(r.heightProperty().divide(12).subtract(5));
@@ -190,19 +183,17 @@ public class Main extends Application {
 					c.centerYProperty().bind(r.heightProperty().divide(6).multiply(i + 0.5));
 
 					root1.getChildren().add(c);
-
 				}
 			}
-			// création des cases
+			// crï¿½ation des cases
 			portepion = new Portepion[7][6];
 
 			for (int i = 0; i < L; i++) {
 				for (int j = 0; j < C; j++) {
 					// started with colonne after ligne
 					portepion[j][i] = new Portepion();
-					// talsii9
 					portepion[j][i].layoutXProperty().bind(r.widthProperty().divide(7).multiply(j));
-					// tab3iid
+					
 					portepion[j][i].layoutYProperty().bind(r.heightProperty().divide(6).multiply(i));
 					portepion[j][i].fitHeightProperty().bind(r.heightProperty().divide(6));
 					portepion[j][i].fitWidthProperty().bind(r.widthProperty().divide(7));
@@ -257,9 +248,7 @@ public class Main extends Application {
 			reset.prefHeight(41);
 			reset.getStyleClass().add("reset");
 			reset.setOnAction(e -> {
-				/*Main app = new Main();
-				app.start(primaryStage);*/
-				//LocalDateTime.now().getSecond() % 2 == 0
+				
 				resetWinOrEq();				winner1.setVisible(false);
 				winner2.setVisible(false);
 				egalite.setVisible(false);
@@ -291,7 +280,7 @@ public class Main extends Application {
 						portepion[i][j].setImage(null);
 			}});
 			     
-			// winner1
+			
 			
 			winner1.setTextFill(Color.RED);
 			winner1.setFont(Font.font("System", FontWeight.BOLD, FontPosture.ITALIC, scene.getHeight() / 25));
@@ -299,8 +288,6 @@ public class Main extends Application {
 			winner1.setLayoutY(98);
 
 			winner1.setVisible(false);
-			// VS 2 resultat
-			// winner1
 			
 			egalite.setTextFill(Color.WHITE);
 			egalite.setFont(Font.font("System", FontWeight.BOLD, FontPosture.ITALIC, scene.getHeight() / 25));
@@ -331,7 +318,7 @@ public class Main extends Application {
 
 			root.getChildren().addAll(player1, player2, winner1, winner2, reset, Exit, VS, egalite);
 
-			// cadres de sélections:
+			// cadres de sï¿½lections:
 			Rectangle[] curseurselect = new Rectangle[C];
 			for (int i = 0; i < C; i++) {
 				curseurselect[i] = new Rectangle(0, 0, 10, 10);
@@ -355,7 +342,7 @@ public class Main extends Application {
 			r2.setFill(Color.TRANSPARENT);
 			root1.getChildren().addAll(r2);
 
-			precedent = -1; // chtchouf li9bel fer8a ou nnmadem = -1 ray fer8a
+			precedent = -1; 
 			r2.setOnMouseMoved(e -> {
 
 				int val = (int) (e.getX() / (r.getWidth() / C));
@@ -367,7 +354,7 @@ public class Main extends Application {
 				precedent = val;
 
 			});
-			nbTour =2;// 3ALA KOL MOUSECLICKED NBDETOUR YZIID
+			nbTour =2;
 			// placement de pion apres un mouseclickes
 			// evenement lors de clic sur le rectangle curseurselection return colonne ou le
 			// rescngle curseur se situe
@@ -379,10 +366,10 @@ public class Main extends Application {
 				int colonne = (int) (e.getX() / (r.getWidth() / C));// sur quel rectangle le click s'est passe
 
 				// placement du pion
-				if (portepion[colonne][0].getStatut() == 0 && !winner1.isVisible() && !winner2.isVisible() && !egalite.isVisible()) {
+				if (portepion[colonne][0].getStatus() == 0 && !winner1.isVisible() && !winner2.isVisible() && !egalite.isVisible()) {
 
 					int newligne = L - 1;
-					while (portepion[colonne][newligne].getStatut() != 0) {
+					while (portepion[colonne][newligne].getStatus() != 0) {
 						newligne--;
 					}
 					// portepion[colonne][newligne].resize(10, 10);
@@ -393,7 +380,7 @@ public class Main extends Application {
 
 					// nbr de couleur va retourner qui va jouer (red or black )!
 					int couleur = (nbTour % 2 == 1 ? 1 : 2);
-					// nombres reliés a l'emplacement de jeu
+					
 					int max = 0;
 					int x;
 					int y;
@@ -403,14 +390,14 @@ public class Main extends Application {
 					x = colonne;
 					y = newligne;
 					somme = -1;
-					while (y >= 0 && x >= 0 && portepion[x][y].getStatut() == couleur) {
+					while (y >= 0 && x >= 0 && portepion[x][y].getStatus() == couleur) {
 						y--;
 						x--;
 						somme++;
 					}
 					x = colonne;
 					y = newligne;
-					while (y < L && x < C && portepion[x][y].getStatut() == couleur) {
+					while (y < L && x < C && portepion[x][y].getStatus() == couleur) {
 						y++;
 						x++;
 						somme++;
@@ -422,14 +409,14 @@ public class Main extends Application {
 					x = colonne;
 					y = newligne;
 					somme = -1;
-					while (y >= 0 && x < C && portepion[x][y].getStatut() == couleur) {
+					while (y >= 0 && x < C && portepion[x][y].getStatus() == couleur) {
 						y--;
 						x++;
 						somme++;
 					}
 					x = colonne;
 					y = newligne;
-					while (y < L && x >= 0 && portepion[x][y].getStatut() == couleur) {
+					while (y < L && x >= 0 && portepion[x][y].getStatus() == couleur) {
 						y++;
 						x--;
 						somme++;
@@ -441,12 +428,12 @@ public class Main extends Application {
 					x = colonne;
 					y = newligne;
 					somme = -1;
-					while (y >= 0 && portepion[x][y].getStatut() == couleur) {
+					while (y >= 0 && portepion[x][y].getStatus() == couleur) {
 						y--;
 						somme++;
 					}
 					y = newligne;
-					while (y < L && portepion[x][y].getStatut() == couleur) {
+					while (y < L && portepion[x][y].getStatus() == couleur) {
 						y++;
 						somme++;
 					}
@@ -456,12 +443,12 @@ public class Main extends Application {
 					x = colonne;
 					y = newligne;
 					somme = -1;
-					while (x >= 0 && portepion[x][y].getStatut() == couleur) {
+					while (x >= 0 && portepion[x][y].getStatus() == couleur) {
 						x--;
 						somme++;
 					}
 					x = colonne;
-					while (x < C && portepion[x][y].getStatut() == couleur) {
+					while (x < C && portepion[x][y].getStatus() == couleur) {
 						x++;
 						somme++;
 					}
@@ -503,15 +490,12 @@ public class Main extends Application {
 					}
 
 					if (nbTour % 2 == 1) 
-						// initialisation du tableau de serveur bech y3awd y3aytlou wyaaml
-						// initialisation ll les 2 interfaces
+						
 						this.initialize(colonne, newligne, 1);
 						
-					
 					else 
 						this.initialize(colonne, newligne, 2);
 						
-				
 					int[][] tableau = arayfromString(getTable());
 					for (int i = 0; i < 7; i++) {
 						for (int j = 0; j < 6; j++)
@@ -570,7 +554,7 @@ public class Main extends Application {
 
 	}
 
-	// yjib etableau fi chaine de caractere
+	
 	public String getTable() {
 		DefaultClientConfig clientConfig = new DefaultClientConfig();
 		com.sun.jersey.api.client.Client client = com.sun.jersey.api.client.Client.create(clientConfig);
@@ -586,7 +570,7 @@ public class Main extends Application {
 		System.out.println("Output from Server .... \n");
 		String output = response.getEntity(String.class);
 		System.out.println(output);
-		// output : string
+		
 		return output;
 	}
 
