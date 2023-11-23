@@ -6,9 +6,9 @@ Welcome to the Connect4 game client-side repository! This project is developed u
 ## Getting Started
 
 1. **Clone the Repository:**
+   
 ```bash
-   git clone https://github.com/your-username/connectx-client.git
-   cd connectx-client
+   git clone https://github.com/Abdelkader-gnichi/Connect4-Client-Java-JavaFx.git
 ```
 
 2. **Connect to the Server:**
@@ -53,9 +53,4 @@ Welcome to the Connect4 game client-side repository! This project is developed u
 This project was developed by Abdelkader Gnichi.
 
 Feel free to open an [issue](https://github.com/Abdelkader-gnichi/connect4-client/issues) if you encounter any problems or if you have suggestions for improvement. Thank you for your interest in this project!
-
-
-
-
-
 
