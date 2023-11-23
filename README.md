@@ -24,7 +24,7 @@ Feel free to check out the [connect4-server-side](https://github.com/Abdelkader-
 
 3. **Run the Client:**
 
-    - Enjoy playing the ConnectX game with another player!
+    - Enjoy playing the Connect4 game with another player!
 
 ## Features
 
