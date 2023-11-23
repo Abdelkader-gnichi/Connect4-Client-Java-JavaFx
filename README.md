@@ -3,7 +3,7 @@
 
 Welcome to the Connect4 game client-side repository! This project is developed using Java and JavaFX to provide an interactive game interface for two players. The game allows players to compete against each other, with the server acting as the judge to determine the winner.
 
-Feel free to check out the [connect4-server-side](https://github.com/Abdelkader-gnichi/connect4-server-SpringBoot) repository to explore the server-side logic of the game project in Spring Boot. Enjoy using it!
+Feel free to check out the [Connect4 Game - Server Side](https://github.com/Abdelkader-gnichi/connect4-server-SpringBoot) repository to explore the server-side logic of the game project in Spring Boot. Enjoy using it!
 
 
 ## Getting Started
