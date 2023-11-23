@@ -8,8 +8,8 @@ import javafx.scene.image.ImageView;
 
 public class Portepion extends ImageView{
 	
-	private static Image rouge = new Image("prp6.png");
-	private static Image noir = new Image("pnp6.png");
+	private static Image rouge = new Image("file:/home/gadour/Games/client/src/prp6.png");
+	private static Image noir = new Image("file:/home/gadour/Games/client/src/pnp6.png");
     
 	
 

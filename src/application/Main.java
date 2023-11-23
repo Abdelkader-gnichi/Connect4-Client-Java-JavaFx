@@ -40,7 +40,7 @@ public class Main extends Application {
 		Label VS = new Label("VS"); Label player1 = new Label("PLAYER1"); Label player2 = new Label("PLAYER2");
 		Label winner1 = new Label(""); Label egalite = new Label(""); Label winner2 = new Label("");
 		try {
-			Thread thread = new Thread() {
+			Thread thread = new Thread("B") {
 				public void run() {
 					
 					while (true) {
@@ -497,7 +497,7 @@ public class Main extends Application {
 			});
 
 			primaryStage.setTitle("jeu pion AS");
-			primaryStage.getIcons().add(new Image("pionjeuAS.png"));
+			primaryStage.getIcons().add(new Image("file:/home/gadour/Games/client/src/pionjeuAS.png"));
 
 			primaryStage.setResizable(false);
 			primaryStage.setScene(scene);
