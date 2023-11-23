@@ -48,6 +48,13 @@ Welcome to the Connect4 game client-side repository! This project is developed u
 
 ![Screenshot from 2023-11-23 19-00-21](https://github.com/Abdelkader-gnichi/connect4-client/assets/64486451/a4de4274-91b0-4913-a123-fb10d6da5213)
 
+### Author
+
+This project was developed by Abdelkader Gnichi.
+
+Feel free to open an [issue](https://github.com/Abdelkader-gnichi/connect4-client/issues) if you encounter any problems or if you have suggestions for improvement. Thank you for your interest in this project!
+
+
 
 
 
